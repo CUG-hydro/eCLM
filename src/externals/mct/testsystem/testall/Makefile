@@ -46,7 +46,7 @@ clean:
 
 # DEPENDENCIES:
 
-$(OBJS_ALL): $(MCTPATH)/libmct.a
+$(OBJS_ALL): $(MCTPATH)/libmct.so
 
 
 

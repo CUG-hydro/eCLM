@@ -1,6 +1,6 @@
 project (mosart LANGUAGES Fortran)
 
-add_library(${PROJECT_NAME} STATIC)
+add_library(${PROJECT_NAME} SHARED)
 
 target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_BINARY_DIR})
 target_link_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_BINARY_DIR})

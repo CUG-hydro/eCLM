@@ -12,3 +12,7 @@ docs/_build/*
 *.py[cod]
 build
 bld
+
+*.a
+*.so
+*.o

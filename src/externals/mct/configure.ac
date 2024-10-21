@@ -459,7 +459,7 @@ elif echo $ac_fc_version_output | grep -i sx >/dev/null 2>&1; then
 fi
 
 # Test to see if fortran compiler supports the flag
-# -fallow-argument-mismatch flag introduced in gfortran 10.
+# -fallow-argument-mismatch -shared -fPIC flag introduced in gfortran 10.
 #
 # Also allow support for NAG compiler using the -mismatch_all flag.
 #
@@ -472,10 +472,10 @@ Program test
 USE ISO_C_BINDING, ONLY: C_PTRDIFF_T
 End Program
 EOF
-doit='$FC -c ${FCFLAGS} ${FCFLAGS_f90} -fallow-argument-mismatch conftest.f90'
+doit='$FC -c ${FCFLAGS} ${FCFLAGS_f90} -fallow-argument-mismatch -shared -fPIC conftest.f90'
 if AC_TRY_EVAL(doit); then
    nf_allow_mismatch=yes
-   FCFLAGS="${FCFLAGS} -fallow-argument-mismatch"
+   FCFLAGS="${FCFLAGS} -fallow-argument-mismatch -shared -fPIC"
   else
    nf_allow_mismatch=no
 fi

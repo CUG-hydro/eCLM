@@ -42,9 +42,9 @@ include ../Makefile.conf
 
 # TARGETS
 
-all: 	lib$(MODULE).a
+all: 	lib$(MODULE).so
 
-lib$(MODULE).a:	$(OBJS_ALL)
+lib$(MODULE).so:	$(OBJS_ALL)
 	$(RM) $@
 	$(AR) $@ $(OBJS_ALL)
 	$(RANLIB) $@
@@ -63,11 +63,11 @@ MCTFLAGS = $(INCFLAG)$(MPEUPATH)
 
 
 clean:
-	${RM} *.o *.mod lib$(MODULE).a
+	${RM} *.o *.mod lib$(MODULE).so
 
 install: all
 	$(MKINSTALLDIRS) $(libdir) $(includedir)
-	$(INSTALL) lib$(MODULE).a -m 644 $(libdir)
+	$(INSTALL) lib$(MODULE).so -m 644 $(libdir)
 	@for modfile in *.mod; do                         \
 	  echo $(INSTALL) $$modfile -m 644 $(includedir); \
 	  $(INSTALL) $$modfile -m 644 $(includedir);      \

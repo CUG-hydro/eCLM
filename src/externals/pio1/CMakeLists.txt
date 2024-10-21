@@ -1,5 +1,5 @@
 project(pio C Fortran)
-add_library(${PROJECT_NAME} STATIC)
+add_library(${PROJECT_NAME} SHARED)
 
 find_file(TESTFILE NAMES TryCSizeOf.f90 PATHS ${CMAKE_MODULE_PATH} NO_DEFAULT_PATH)
 get_filename_component(TESTFILEPATH ${TESTFILE} PATH)

@@ -1,6 +1,7 @@
 project (clm LANGUAGES Fortran)
 
-add_library(${PROJECT_NAME} STATIC)
+# add_library(${PROJECT_NAME} STATIC)
+add_library(${PROJECT_NAME} SHARED)
 
 target_compile_definitions(${PROJECT_NAME} PRIVATE NDEBUG)
 target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_BINARY_DIR})

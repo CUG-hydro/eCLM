@@ -1,6 +1,6 @@
 project (csm_share LANGUAGES C Fortran)
 
-add_library(${PROJECT_NAME} STATIC)
+add_library(${PROJECT_NAME} SHARED)
 
 # TODO: NUM_COMP_INST_<COMP> should be adjusted for ensemble runs. See the ff. for more info:
 # https://esmci.github.io/cime/versions/cesm2.2/html/users_guide/multi-instance.html

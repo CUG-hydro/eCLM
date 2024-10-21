@@ -26,15 +26,15 @@ ExternalProject_Add(gptl_external
                       SHAREDPATH=${GPTL_BLD_DIR}
     INSTALL_COMMAND   ""
     BUILD_ALWAYS      YES
-    BUILD_BYPRODUCTS  ${GPTL_BLD_DIR}/lib/libgptl.a
+    BUILD_BYPRODUCTS  ${GPTL_BLD_DIR}/lib/libgptl.so
 )
 
 add_library(gptl INTERFACE IMPORTED GLOBAL)
 target_include_directories(gptl INTERFACE ${GPTL_BLD_DIR}/include)
 target_link_directories(gptl INTERFACE ${GPTL_BLD_DIR}/lib)
-target_link_libraries(gptl INTERFACE libgptl.a)
+target_link_libraries(gptl INTERFACE libgptl.so)
 add_dependencies(gptl gptl_external)
-install (FILES ${GPTL_BLD_DIR}/lib/libgptl.a TYPE LIB)
+install (FILES ${GPTL_BLD_DIR}/lib/libgptl.so TYPE LIB)
 
 
 # ===========
@@ -58,13 +58,13 @@ if (BUILD_MCT)
                         CFLAGS=${CMAKE_C_FLAGS}
                         FCFLAGS=${CMAKE_Fortran_FLAGS}
         BUILD_ALWAYS      YES
-        BUILD_BYPRODUCTS  ${GPTL_BLD_DIR}/lib/libmct.a ${GPTL_BLD_DIR}/lib/libmpeu.a
+        BUILD_BYPRODUCTS  ${GPTL_BLD_DIR}/lib/libmct.so ${GPTL_BLD_DIR}/lib/libmpeu.a
     )
     target_include_directories(mct INTERFACE ${MCT_BLD_DIR}/include)
     target_link_directories(mct INTERFACE ${MCT_BLD_DIR}/lib)
-    target_link_libraries(mct INTERFACE libmct.a libmpeu.a)
+    target_link_libraries(mct INTERFACE libmct.so libmpeu.a)
     add_dependencies(mct mct_external) 
-    install (FILES ${MCT_BLD_DIR}/lib/libmct.a ${MCT_BLD_DIR}/lib/libmpeu.a TYPE LIB)
+    install (FILES ${MCT_BLD_DIR}/lib/libmct.so ${MCT_BLD_DIR}/lib/libmpeu.a TYPE LIB)
 else()
     find_package(MCT REQUIRED)
     if (${MCT_FOUND})

@@ -1,7 +1,7 @@
 project (eclm LANGUAGES Fortran)
 
 if(USE_PDAF)
-  add_library(${PROJECT_NAME} STATIC)
+  add_library(${PROJECT_NAME} SHARED)
 else()
   add_executable(${PROJECT_NAME})
   set_target_properties(${PROJECT_NAME} PROPERTIES SUFFIX ".exe")

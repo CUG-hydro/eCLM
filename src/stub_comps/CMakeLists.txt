@@ -1,7 +1,7 @@
 project (stub_comps LANGUAGES Fortran)
 
 foreach(component glc wav ice esp ocn)
-    add_library(${component} STATIC)
+    add_library(${component} SHARED)
     target_include_directories(${component} PUBLIC ${CMAKE_CURRENT_BINARY_DIR})
     target_link_directories(${component} PUBLIC ${CMAKE_CURRENT_BINARY_DIR})
     if(${component} STREQUAL glc)

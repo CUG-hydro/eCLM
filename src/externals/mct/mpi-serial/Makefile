@@ -44,20 +44,20 @@ INCPATH:= -I .
 
 # TARGETS
 
-default: lib$(MODULE).a
+default: lib$(MODULE).so
 
 
 fort.o: mpif.h
 
 
-lib$(MODULE).a: $(OBJS_ALL)
+lib$(MODULE).so: $(OBJS_ALL)
 	echo $(OBJS_ALL)
 	$(RM) $@
 	$(AR) $@ $(OBJS_ALL)
 	$(RANLIB) $@
 
 
-LIB	= lib$(MODULE).a
+LIB	= lib$(MODULE).so
 
 
 ###############################
@@ -85,7 +85,7 @@ tests:
 
 install: lib
 	$(MKINSTALLDIRS) $(libdir) $(includedir)
-	$(INSTALL) lib$(MODULE).a -m 644 $(libdir)
+	$(INSTALL) lib$(MODULE).so -m 644 $(libdir)
 	$(INSTALL) mpi.h -m 644 $(includedir)
 	$(INSTALL) mpif.h -m 644 $(includedir)
 

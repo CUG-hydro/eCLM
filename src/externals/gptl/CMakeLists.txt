@@ -21,4 +21,4 @@ SET(SRCS_C  GPTLget_memusage.c
 SET(SRCS_F90  perf_mod.F90
               perf_utils.F90)
 
-ADD_LIBRARY(timing ${SRCS_F90} ${SRCS_C})
+ADD_LIBRARY(timing SHARED ${SRCS_F90} ${SRCS_C})

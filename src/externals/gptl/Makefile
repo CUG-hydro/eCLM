@@ -48,7 +48,10 @@ OBJS = gptl.o GPTLutil.o GPTLget_memusage.o GPTLprint_memusage.o \
 AR ?= ar
 ARFLAGS ?= ruv
 
-libgptl.a: $(OBJS)
+CFLAGS=-fPIC -shared
+FFLAGS=-fPIC -shared
+
+libgptl.so: $(OBJS)
 	$(AR) $(ARFLAGS) $@ $(OBJS)
 
 
@@ -69,10 +72,10 @@ clean:
 	$(RM) -f *.f *.f90 *.d *.$(MOD_SUFFIX) $(OBJS)
 
 
-install: libgptl.a
+install: libgptl.so
 	cp -p $(GPTL_DIR)/gptl.h $(SHAREDPATH)/include
 	cp -p *.$(MOD_SUFFIX) $(SHAREDPATH)/include
-	cp -p libgptl.a $(SHAREDPATH)/lib
+	cp -p libgptl.so $(SHAREDPATH)/lib
 
 
 perf_mod.o: perf_utils.o
